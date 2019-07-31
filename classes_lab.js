@@ -165,15 +165,17 @@ class Celsius {
     }
   }
 }
-let outsideTempt = new Celsius(-1);
-console.log('----- Question 4 -----');
+let outsideTempt = new Celsius(10);
+console.log('----- Question 4b -----');
 console.log(outsideTempt.celsius)
 console.log(outsideTempt.getKelvinTemp());
 console.log(outsideTempt.getFahrenheitTemp());
-console.log(outsideTempt.isBelowFreezing());
 
 // c. Give `Celsius` a method called `isBelowFreezing` that returns a `Bool`
 //(true if the temperature is below freezing).
+console.log('----- Question 4b -----');
+console.log(outsideTempt.isBelowFreezing());
+console.log('');
 
 // ## Question 5
 //
@@ -215,22 +217,25 @@ class Vector{
     this.y = y;
   }
 
-  plus(vector1, vector2) {
-    this.xSum = this.x + this.x;
-    this.ySum = this.y + this.y;
-    console.log(`(${this.xSum},${this.ySum})`);
+  plus(vector) {
+  return new Vector(this.x + vector.x, this.y + vector.y);
   }
 
-  minus() {
-console.log()
-}
-  getLength(vector, origin) {
-    console.log();
+  minus(vector) {
+  return new Vector(this.x - vector.x, this.y - vector.y);
+  }
+  getLength() {
+    return Math.sqrt((this.x * this.x) + (this.y * this.y));
 }
 }
 var v1 = new Vector(1, 2);
 var v2 = new Vector(2, 3);
+var v3 = new Vector(3, 4);
+console.log('----- Question 6 -----');
  console.log(v1.plus(v2));
+ console.log(v1.minus(v2));
+ console.log(v3.getLength());
+ console.log('');
 
 // Give the Vector prototype two methods, `plus` and `minus`, that take another vector as an argument and
 // returns a new vector that has the sum or difference of the two vectors’ (the one in
@@ -309,7 +314,11 @@ class Vehicle {
     console.log('WHHOOSSSH');
   }
 }
+let truck = new Vehicle('black', 'Bob');
 
+console.log('----- Question 8a -----');
+truck.makeSound();
+console.log('');
 // b. Modify your `Car` and `Bike` classes from Question 7 to extend the `Vehicle` class.
 class Car1 extends Vehicle {
   constructor(color, name, make, model) {
@@ -343,4 +352,3 @@ console.log(bike1);
 console.log('----- Question 8d -----');
 let car1 = new Car1('red', 'Carry McCarface', 'Nissan', 'Rogue');
 console.log(car1);
-car1.makeSound();
